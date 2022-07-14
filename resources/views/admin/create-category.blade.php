@@ -1,0 +1,1 @@
+@extends('loyouts.app')
