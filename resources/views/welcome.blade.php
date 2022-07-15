@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Belle Multipurpose Bootstrap 4 Html Template</title>
+    <title>Friendly Ecommerce</title>
     <meta name="description" content="description">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="col-10 col-sm-8 col-md-5 col-lg-4">
                         <div class="currency-picker">
-                            <span class="selected-currency">USD</span>
+                            <span class="selected-currency">NGN</span>
                             <ul id="currencies">
                                 <li data-currency="INR" class="">INR</li>
                                 <li data-currency="GBP" class="">GBP</li>
@@ -61,7 +61,7 @@
                                 <li class="">French</li>
                             </ul>
                         </div>
-                        <p class="phone-no"><i class="anm anm-phone-s"></i> +440 0(111) 044 833</p>
+                        <p class="phone-no"><i class="anm anm-phone-s"></i> +234 9064553734</p>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4 d-none d-lg-none d-md-block d-lg-block">
                         <div class="text-center">
@@ -71,22 +71,7 @@
                     <div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
                         <span class="user-menu d-block d-lg-none"><i class="anm anm-user-al"
                                 aria-hidden="true"></i></span>
-                        {{-- <div
-                                class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-                                @if (Route::has('login'))
-                                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                        @auth
-                                            <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                                        @else
-                                            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-                        
-                                            @if (Route::has('register'))
-                                                <a href="{{ route('register') }}"
-                                                    class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                            @endif
-                                        @endauth
-                                    </div>
-                                @endif --}}
+                   
                         <ul class="customer-links list-inline">
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Create Account</a></li>
@@ -122,126 +107,13 @@
                             <ul id="siteNav" class="site-nav medium center hidearrow">
                                 <li class="lvl1 parent megamenu"><a href="#">Home <i
                                             class="anm anm-angle-down-l"></i></a>
-                                    <div class="megamenu style1">
-                                        <ul class="grid mmWrapper">
-                                            <li class="grid__item large-up--one-whole">
-                                                <ul class="grid">
-                                                    <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#"
-                                                            class="site-nav lvl-1">Home Group 1</a>
-                                                        <ul class="subLinks">
-                                                            <li class="lvl-2"><a href="index.html"
-                                                                    class="site-nav lvl-2">Home 1 - Classic</a></li>
-                                                            <li class="lvl-2"><a href="home2-default.html"
-                                                                    class="site-nav lvl-2">Home 2 - Default</a></li>
-                                                            <li class="lvl-2"><a href="home15-funiture.html"
-                                                                    class="site-nav lvl-2">Home 15 - Furniture <span
-                                                                        class="lbl nm_label1">New</span></a></li>
-                                                            <li class="lvl-2"><a href="home3-boxed.html"
-                                                                    class="site-nav lvl-2">Home 3 - Boxed</a></li>
-                                                            <li class="lvl-2"><a href="home4-fullwidth.html"
-                                                                    class="site-nav lvl-2">Home 4 - Fullwidth</a></li>
-                                                            <li class="lvl-2"><a href="home5-cosmetic.html"
-                                                                    class="site-nav lvl-2">Home 5 - Cosmetic</a></li>
-                                                            <li class="lvl-2"><a href="home6-modern.html"
-                                                                    class="site-nav lvl-2">Home 6 - Modern</a></li>
-                                                            <li class="lvl-2"><a href="home7-shoes.html"
-                                                                    class="site-nav lvl-2">Home 7 - Shoes</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#"
-                                                            class="site-nav lvl-1">Home Group 2</a>
-                                                        <ul class="subLinks">
-                                                            <li class="lvl-2"><a href="home8-jewellery.html"
-                                                                    class="site-nav lvl-2">Home 8 - Jewellery</a></li>
-                                                            <li class="lvl-2"><a href="home9-parallax.html"
-                                                                    class="site-nav lvl-2">Home 9 - Parallax</a></li>
-                                                            <li class="lvl-2"><a href="home10-minimal.html"
-                                                                    class="site-nav lvl-2">Home 10 - Minimal</a></li>
-                                                            <li class="lvl-2"><a href="home11-grid.html"
-                                                                    class="site-nav lvl-2">Home 11 - Grid</a></li>
-                                                            <li class="lvl-2"><a href="home12-category.html"
-                                                                    class="site-nav lvl-2">Home 12 - Category</a></li>
-                                                            <li class="lvl-2"><a href="home13-auto-parts.html"
-                                                                    class="site-nav lvl-2">Home 13 - Auto Parts</a>
-                                                            </li>
-                                                            <li class="lvl-2"><a href="home14-bags.html"
-                                                                    class="site-nav lvl-2">Home 14 - Bags <span
-                                                                        class="lbl nm_label1">New</span></a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#"
-                                                            class="site-nav lvl-1">New Sections</a>
-                                                        <ul class="subLinks">
-                                                            <li class="lvl-2"><a href="home11-grid.html"
-                                                                    class="site-nav lvl-2">Image Gallery</a></li>
-                                                            <li class="lvl-2"><a href="home5-cosmetic.html"
-                                                                    class="site-nav lvl-2">Featured Product</a></li>
-                                                            <li class="lvl-2"><a href="home7-shoes.html"
-                                                                    class="site-nav lvl-2">Columns with Items</a></li>
-                                                            <li class="lvl-2"><a href="home6-modern.html"
-                                                                    class="site-nav lvl-2">Text columns with images</a>
-                                                            </li>
-                                                            <li class="lvl-2"><a href="home2-default.html"
-                                                                    class="site-nav lvl-2">Products Carousel</a></li>
-                                                            <li class="lvl-2"><a href="home9-parallax.html"
-                                                                    class="site-nav lvl-2">Parallax Banner</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#"
-                                                            class="site-nav lvl-1">New Features</a>
-                                                        <ul class="subLinks">
-                                                            <li class="lvl-2"><a href="home13-auto-parts.html"
-                                                                    class="site-nav lvl-2">Top Information Bar <span
-                                                                        class="lbl nm_label1">New</span></a></li>
-                                                            <li class="lvl-2"><a href="#"
-                                                                    class="site-nav lvl-2">Age Varification <span
-                                                                        class="lbl nm_label1">New</span></a></li>
-                                                            <li class="lvl-2"><a href="#"
-                                                                    class="site-nav lvl-2">Footer Blocks</a></li>
-                                                            <li class="lvl-2"><a href="#"
-                                                                    class="site-nav lvl-2">2 New Megamenu style</a>
-                                                            </li>
-                                                            <li class="lvl-2"><a href="#"
-                                                                    class="site-nav lvl-2">Show Total Savings <span
-                                                                        class="lbl nm_label3">Hot</span></a></li>
-                                                            <li class="lvl-2"><a href="#"
-                                                                    class="site-nav lvl-2">New Custom Icons</a></li>
-                                                            <li class="lvl-2"><a href="#"
-                                                                    class="site-nav lvl-2">Auto Currency</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    
                                 </li>
                                 <li class="lvl1 parent megamenu"><a href="#">Shop <i
                                             class="anm anm-angle-down-l"></i></a>
                                     <div class="megamenu style4">
                                         <ul class="grid grid--uniform mmWrapper">
-                                            <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#"
-                                                    class="site-nav lvl-1">Shop Pages</a>
-                                                <ul class="subLinks">
-                                                    <li class="lvl-2"><a href="shop-left-sidebar.html"
-                                                            class="site-nav lvl-2">Left Sidebar</a></li>
-                                                    <li class="lvl-2"><a href="shop-right-sidebar.html"
-                                                            class="site-nav lvl-2">Right Sidebar</a></li>
-                                                    <li class="lvl-2"><a href="shop-fullwidth.html"
-                                                            class="site-nav lvl-2">Fullwidth</a></li>
-                                                    <li class="lvl-2"><a href="shop-grid-3.html"
-                                                            class="site-nav lvl-2">3 items per row</a></li>
-                                                    <li class="lvl-2"><a href="shop-grid-4.html"
-                                                            class="site-nav lvl-2">4 items per row</a></li>
-                                                    <li class="lvl-2"><a href="shop-grid-5.html"
-                                                            class="site-nav lvl-2">5 items per row</a></li>
-                                                    <li class="lvl-2"><a href="shop-grid-6.html"
-                                                            class="site-nav lvl-2">6 items per row</a></li>
-                                                    <li class="lvl-2"><a href="shop-grid-7.html"
-                                                            class="site-nav lvl-2">7 items per row</a></li>
-                                                    <li class="lvl-2"><a href="shop-listview.html"
-                                                            class="site-nav lvl-2">Product Listview</a></li>
-                                                </ul>
-                                            </li>
+                                       
                                             <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#"
                                                     class="site-nav lvl-1">Shop Features</a>
                                                 <ul class="subLinks">
@@ -448,7 +320,7 @@
                             <a href="#;" class="site-header__cart" title="Cart">
                                 <i class="icon anm anm-bag-l"></i>
                                 <span id="CartCount" class="site-header__cart-count"
-                                    data-cart-render="item_count">2</span>
+                                    data-cart-render="item_count">7</span>
                             </a>
                             <!--Minicart Popup-->
                             <div id="header-cart" class="block block-cart">

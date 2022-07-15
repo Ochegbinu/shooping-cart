@@ -19,12 +19,16 @@
      <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/css/bootstrap.min.css') }}" rel="stylesheet">
 
-
+  <!-- Main Style CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
+
+        
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">

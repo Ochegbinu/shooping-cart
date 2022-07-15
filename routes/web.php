@@ -31,13 +31,13 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
-Route::get('/create-category', [CategoryController::class, 'create'])->name('category');
-Route::post('/create-category', [CategoryController::class, 'store'])->name('storeCategory');
-Route::get('/all-categories', [CategoryController::class, 'index'])->name('allCategory');
-Route::get('/destroy-category/{id}', [CategoryController::class, 'destroy'])->name('destroy');
+Route::get('/caetegories/create', [CategoryController::class, 'create'])->name('category');
+Route::post('/caegories/create', [CategoryController::class, 'store'])->name('storeCategory');
+Route::get('/categories/all', [CategoryController::class, 'index'])->name('allCategory');
+Route::get('/destroy/category/{category}', [CategoryController::class, 'destroy'])->name('destroy');
 
 
-Route::get('/create-product', [ProductController::class, 'create'])->name('createProduct');
-Route::post('/create-product', [ProductController::class, 'store'])->name('storeProduct');
+Route::get('/product/create', [ProductController::class, 'create'])->name('createProduct');
+Route::post('/product/create', [ProductController::class, 'store'])->name('storeProduct');
 
 
