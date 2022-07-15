@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +17,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'create']);
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+
+Route::get('/caetegories/create', [CategoryController::class, 'create'])->name('category');
+Route::post('/caegories/create', [CategoryController::class, 'store'])->name('storeCategory');
+Route::get('/categories/all', [CategoryController::class, 'index'])->name('allCategory');
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('destroy');
+
+
+Route::get('/product/create', [ProductController::class, 'create'])->name('createProduct');
+Route::post('/product/create', [ProductController::class, 'store'])->name('storeProduct');
+
+
