@@ -9,17 +9,23 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-   public function show($id)
-   {
+    public function show($id)
+    {
 
-   $product = Product::findOrFail($id);
+        $product = Product::findOrFail($id);
 
         $cart = Cart::create([
             'user_id' => Auth::user()->id,
             'product_id' => $product->id,
-            
+
         ]);
 
         return redirect()->back()->with('message', 'product add to cart successfully');
-   }
+    }
+
+    public function create()
+    {
+        $product = Product::all();
+        return view('my-cart', compact('product'));
+    }
 }

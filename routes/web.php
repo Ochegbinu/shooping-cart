@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'create']);
+Route::get('/', [HomeController::class, 'create'])->name('index');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -42,4 +42,5 @@ Route::get('/product/create', [ProductController::class, 'create'])->name('creat
 Route::post('/product/create', [ProductController::class, 'store'])->name('storeProduct');
 
 
-Route::get('/add/cart/{cart}', [CartController::class, 'show'])->name('cart');
+Route::get('/add/cart/{id}', [CartController::class, 'show'])->name('cart');
+Route::get('/my/cart', [CartController::class, 'create'])->name('myCart');
