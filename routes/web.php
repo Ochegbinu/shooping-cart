@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -41,3 +42,4 @@ Route::get('/product/create', [ProductController::class, 'create'])->name('creat
 Route::post('/product/create', [ProductController::class, 'store'])->name('storeProduct');
 
 
+Route::get('/add/cart/{cart}', [CartController::class, 'show'])->name('cart');

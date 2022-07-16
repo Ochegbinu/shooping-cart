@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,9 @@ class HomeController extends Controller
 
     public function create()
     {
+        $cart = Cart::all();
         $product = Product::all();
-        return view('welcome', compact('product'));
+        $counters = Cart::all('product_id')->count();
+        return view('welcome', compact('product', 'cart', 'counters'));
     }
 }
