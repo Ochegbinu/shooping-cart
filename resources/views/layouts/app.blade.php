@@ -20,9 +20,7 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" />
-
+   
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">

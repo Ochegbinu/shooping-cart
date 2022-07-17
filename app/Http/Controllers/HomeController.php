@@ -31,8 +31,11 @@ class HomeController extends Controller
     public function create()
     {
         $cart = Cart::all();
+
         $product = Product::all();
+
         $counters = Cart::all('product_id')->count();
+        
         return view('welcome', compact('product', 'cart', 'counters'));
     }
 }
