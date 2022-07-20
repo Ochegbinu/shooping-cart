@@ -46,4 +46,4 @@ Route::post('/product/create', [ProductController::class, 'store'])->name('store
 Route::get('/cart/add/{id}', [CartController::class, 'show'])->name('cart');
 Route::get('/cart/show', [CartController::class, 'create'])->name('myCart');
 
-Route::get('/order/add', [OrderController::class, 'create'])->name('checkout');
+Route::post('/order/add', [OrderController::class, 'create'])->name('checkout');

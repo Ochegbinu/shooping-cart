@@ -11,16 +11,18 @@ use Illuminate\Support\Facades\Auth;
 class OrderController extends Controller
 {
 
-    public function create()
+    public function create (Request $request)
     {
 
+        
         $carts = Cart::where('user_id', Auth::user()->id)->get();
 
-
+       
+    
 
         $transaction = Transaction::create([
             'user_id' => Auth::user()->id,
-            'amount' => 1,
+            'amount' => $request->total,
             'status' => 'Succssfull',
 
         ]);
@@ -29,6 +31,7 @@ class OrderController extends Controller
                 'user_id' => Auth::user()->id,
                 'product_id' => $cart->product_id,
                 'transaction_id' => $transaction->id,
+                'note' => $request->note,
             ]);
         }
         $carts->each->delete();
