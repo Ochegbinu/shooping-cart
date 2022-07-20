@@ -25,8 +25,10 @@ class CartController extends Controller
 
     public function create()
     {
-        $product = Product::all();
         
-        return view('my-cart', compact('product'));
+        
+        $carts = cart::all();
+    
+        return view('my-cart', compact( 'carts'));
     }
 }

@@ -35,7 +35,7 @@ class HomeController extends Controller
         $product = Product::all();
 
         $counters = Cart::all('product_id')->count();
-        
+
         return view('welcome', compact('product', 'cart', 'counters'));
     }
 }

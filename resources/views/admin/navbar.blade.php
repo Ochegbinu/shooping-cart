@@ -23,13 +23,13 @@
     <title>Friendly-Ecomm</title>
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-      <!-- Bootstrap core CSS -->
-      <link href="{{ asset('vendor/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('vendor/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- font awesome style -->
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    <link href="{{asset('vendor/css/style.css" rel="stylesheet')}}" />
+    <link href="{{ asset('vendor/css/style.css" rel="stylesheet') }}" />
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet" />
     <!-- Toastr CSS -->
@@ -57,7 +57,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">
-        
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#"
                                 onclick="event.preventDefault();
@@ -100,13 +100,13 @@
                             <a class="nav-link" href="{">All Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{route('category')}}">Create Category</a>
+                            <a class="nav-link active" href="{{ route('category') }}">Create Category</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('allCategory')}}">All Category</a>
+                            <a class="nav-link" href="{{ route('allCategory') }}">All Category</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('createProduct')}}">Create Product</a>
+                            <a class="nav-link" href="{{ route('createProduct') }}">Create Product</a>
                         </li>
                     </ul>
                 </nav>

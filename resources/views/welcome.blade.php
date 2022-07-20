@@ -330,17 +330,17 @@
                             <!--Minicart Popup-->
                             <div id="header-cart" class="block block-cart">
                                 <ul class="mini-products-list">
-                                    @foreach ($product as $item)
+                                    @foreach ($cart as $item)
                                         <li class="item">
                                             <a class="product-image" href="#">
-                                                <img src="{{ asset($item->image) }}" style="width: 100px" />
+                                                <img src="{{ asset($item->product->image) }}" style="width: 100px" />
                                             </a>
                                             <div class="product-details">
                                                 <a href="#" class="remove"><i class="anm anm-times-l"
                                                         aria-hidden="true"></i></a>
                                                 <a href="#" class="edit-i remove"><i class="anm anm-edit"
                                                         aria-hidden="true"></i></a>
-                                                <a class="pName" href="cart.html">{{ $item->name }}</a>
+                                                <a class="pName" href="cart.html">{{ $item->product->name }}</a>
                                                 <div class="wrapQtyBtn">
                                                     <div class="qtyField">
                                                         <span class="label">Qty:</span>
@@ -355,7 +355,7 @@
                                                 <div class="priceRow">
                                                     <div class="product-price">
                                                         <span class="money"><span>&#8358</span>
-                                                            {{ $item->price }}</span>
+                                                            {{ $item->product->price }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -366,7 +366,7 @@
                                 <div class="total">
                                     <div class="total-in">
                                         <span class="label">Cart Subtotal:</span><span class="product-price"><span
-                                                class="money"><span>&#8358</span>748.00</span></span>
+                                                class="money"><span>&#8358</span>Amount</span></span>
                                     </div>
                                     <div class="buttonSet text-center">
                                         <a href="{{ route('myCart') }}" class="btn btn-secondary btn--small">View
