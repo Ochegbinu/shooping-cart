@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -32,8 +33,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
-Route::get('/caetegories/create', [CategoryController::class, 'create'])->name('category');
-Route::post('/caegories/create', [CategoryController::class, 'store'])->name('storeCategory');
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('category');
+Route::post('/categories/create', [CategoryController::class, 'store'])->name('storeCategory');
 Route::get('/categories/all', [CategoryController::class, 'index'])->name('allCategory');
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('destroy');
 
@@ -44,3 +45,5 @@ Route::post('/product/create', [ProductController::class, 'store'])->name('store
 
 Route::get('/cart/add/{id}', [CartController::class, 'show'])->name('cart');
 Route::get('/cart/show', [CartController::class, 'create'])->name('myCart');
+
+Route::post('/order/add', [OrderController::class, 'create'])->name('checkout');

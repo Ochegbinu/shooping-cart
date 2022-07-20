@@ -20,16 +20,19 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/css/bootstrap.min.css') }}" rel="stylesheet">
 
-   
+
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 
 
-<!-- Plugins CSS -->
-<link rel="stylesheet" href="{{asset('assets/css/plugins.css')}}">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins.css') }}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+       <!-- Toastr CSS -->
+       <link href="{{ asset('vendor/css/toastr.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -98,7 +101,46 @@
         </main>
     </div>
 
-   
+    <script src="{{ asset('vendor/js/core/jquery.3.2.1.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/toastr.js') }}"></script>
+
+
+    <script>
+        @if (Session::has('message'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('message') }}");
+        @endif
+
+        @if (Session::has('error'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('error') }}");
+        @endif
+
+        @if (Session::has('info'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.info("{{ session('info') }}");
+        @endif
+
+        @if (Session::has('warning'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.warning("{{ session('warning') }}");
+        @endif
+    </script>
+
 </body>
 
 </html>
