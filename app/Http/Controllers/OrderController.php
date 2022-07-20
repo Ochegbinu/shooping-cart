@@ -12,20 +12,16 @@ class OrderController extends Controller
 {
 
     public function create (Request $request)
-    {
-
-        
-        $carts = Cart::where('user_id', Auth::user()->id)->get();
-
-       
-    
-
+    {        
+       $carts = Cart::where('user_id', Auth::user()->id)->get(); 
+           
         $transaction = Transaction::create([
             'user_id' => Auth::user()->id,
             'amount' => $request->total,
             'status' => 'Succssfull',
 
         ]);
+
         foreach ($carts as $cart) {
             $order = Order::create([
                 'user_id' => Auth::user()->id,
