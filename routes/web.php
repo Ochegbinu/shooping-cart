@@ -31,19 +31,24 @@ Route::get('/', [HomeController::class, 'create'])->name('index');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::post('/admin/dashboard', [HomeController::class, 'dashboard'])->name('admin');
 
 
-Route::get('/categories/create', [CategoryController::class, 'create'])->name('category');
+
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('category')->middleware('admin');
 Route::post('/categories/create', [CategoryController::class, 'store'])->name('storeCategory');
 Route::get('/categories/all', [CategoryController::class, 'index'])->name('allCategory');
-Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('destroy');
+Route::get('/categories/{id}', [CategoryController::class, 'destroy'])->name('destroy');
 
-
+Route::get('/product/all', [ProductController::class, 'index'])->name('allProduct');
 Route::get('/product/create', [ProductController::class, 'create'])->name('createProduct');
 Route::post('/product/create', [ProductController::class, 'store'])->name('storeProduct');
+Route::get('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
 
 
 Route::get('/cart/add/{id}', [CartController::class, 'show'])->name('cart');
 Route::get('/cart/show', [CartController::class, 'create'])->name('myCart');
+Route::get('/cart/destroy/{id}', [CartController::class, 'destroy'])->name('destroy');
+
 
 Route::post('/order/add', [OrderController::class, 'create'])->name('checkout');

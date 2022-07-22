@@ -12,9 +12,10 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/plugins.css') }}">
     <!-- Bootstap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -47,7 +48,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-10 col-sm-8 col-md-5 col-lg-4">
-                                            
+
                         <p class="phone-no"><i class="anm anm-phone-s"></i> +234 9064553734</p>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4 d-none d-lg-none d-md-block d-lg-block">
@@ -55,15 +56,33 @@
                             <p class="top-header_middle-text"> Worldwide Express Shipping</p>
                         </div>
                     </div>
-                    <div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
-                        <span class="user-menu d-block d-lg-none"><i class="anm anm-user-al"
-                                aria-hidden="true"></i></span>
+                    @if (Auth::user())
+                        <div class="dropdown col-2 col-sm-4 col-md-3 col-lg-4 text-right">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle='dropdown' aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->fname }}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    @else
+                        <div class="col-2 col-sm-4 col-md-3 col-lg-4 text-right">
+                            <span class="user-menu d-block d-lg-none"><i class="anm anm-user-al"
+                                    aria-hidden="true"></i></span>
 
-                        <ul class="customer-links list-inline">
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Create Account</a></li>
-                        </ul>
-                    </div>
+                            <ul class="customer-links list-inline">
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                                <li><a href="{{ route('register') }}">Create Account</a></li>
+                            </ul>
+                        </div>
+                    @endif
+
+
+
+
                 </div>
             </div>
         </div>
@@ -114,20 +133,20 @@
                                                     class="anm anm-angle-right-l"></i></a>
                                             <ul class="dropdown">
                                                 <li><a href="compare-variant1.html" class="site-nav">High level
-                                                        </a></li>
+                                                    </a></li>
                                                 <li><a href="compare-variant2.html" class="site-nav">Wadata
                                                     </a></li>
                                             </ul>
                                         </li>
                                         <li><a href="compare-variant1.html" class="site-nav">Otukpo Shop <i
-                                            class="anm anm-angle-right-l"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a href="compare-variant1.html" class="site-nav">Main market
-                                                </a></li>
-                                        <li><a href="compare-variant2.html" class="site-nav">IGRA shop
-                                            </a></li>
-                                    </ul>
-                                </li>
+                                                    class="anm anm-angle-right-l"></i></a>
+                                            <ul class="dropdown">
+                                                <li><a href="compare-variant1.html" class="site-nav">Main market
+                                                    </a></li>
+                                                <li><a href="compare-variant2.html" class="site-nav">IGRA shop
+                                                    </a></li>
+                                            </ul>
+                                        </li>
                                         <li><a href="about-us.html" class="site-nav">About Shops Location <span
                                                     class="lbl nm_label1">New</span> </a></li>
                                         <li><a href="contact-us.html" class="site-nav">Contact Us</a></li>
@@ -220,14 +239,16 @@
                             <!--Minicart Popup-->
                             <div id="header-cart" class="block block-cart">
                                 <ul class="mini-products-list">
+                                    <?php $total = 0; ?>
                                     @foreach ($cart as $item)
+                                        <?php $total += $item->product->price; ?>
                                         <li class="item">
                                             <a class="product-image" href="#">
                                                 <img src="{{ asset($item->product->image) }}"
                                                     style="width: 100px" />
                                             </a>
                                             <div class="product-details">
-                                                <a href="#" class="remove"><i class="anm anm-times-l"
+                                                <a href="{{route('destroy', [$item])}}" class="remove"><i class="anm anm-times-l"
                                                         aria-hidden="true"></i></a>
                                                 <a href="#" class="edit-i remove"><i class="anm anm-edit"
                                                         aria-hidden="true"></i></a>
@@ -257,7 +278,7 @@
                                 <div class="total">
                                     <div class="total-in">
                                         <span class="label">Cart Subtotal:</span><span class="product-price"><span
-                                                class="money"><span>&#8358</span>Amount</span></span>
+                                                class="money"><span>&#8358</span>{{ $total }}</span></span>
                                     </div>
                                     <div class="buttonSet text-center">
                                         <a href="{{ route('myCart') }}" class="btn btn-secondary btn--small">View
@@ -559,24 +580,13 @@
                                                         <!-- Start product button -->
                                                         <a href="{{ route('cart', [$item]) }}"> <button
                                                                 class="btn btn-sm btn-danger">Add To Cart</button></a>
-
-
-
                                                         <!-- end product button -->
                                                     </div>
                                                 </div>
                                             @endforeach
-
-
-
-
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
                             </div>
                         </div>
                     </div>
@@ -587,70 +597,27 @@
                 <div class="collection-box section">
                     <div class="container-fluid">
                         <div class="collection-grid">
-                            <div class="collection-grid-item">
-                                <a href="collection-page.html" class="collection-grid-item__link">
-                                    <img data-src="assets/images/collection/fashion.jpg"
-                                        src="assets/images/collection/fashion.jpg" alt="Fashion"
-                                        class="blur-up lazyload" />
-                                    <div class="collection-grid-item__title-wrapper">
-                                        <h3 class="collection-grid-item__title btn btn--secondary no-border">Fashion
-                                        </h3>
+                            @foreach ($product as $item)
+                                @if ($item->category == 'Women skirt')
+                                    <div class="collection-grid-item">
+                                        <a href="collection-page.html" class="collection-grid-item__link">
+                                            {{-- <img data-src="assets/images/collection/fashion.jpg"
+                                            src="assets/images/collection/fashion.jpg" alt="Fashion"
+                                            class="blur-up lazyload" /> --}}
+                                            <img src="{{ asset($item->image) }}">
+                                            <div class="collection-grid-item__title-wrapper">
+                                                <h3 class="collection-grid-item__title btn btn--secondary no-border">
+                                                    {{ $item->title }}
+                                                </h3>
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="collection-grid-item">
-                                <a href="collection-page.html" class="collection-grid-item__link">
-                                    <img class="blur-up lazyload" data-src="assets/images/collection/cosmetic.jpg"
-                                        src="assets/images/collection/cosmetic.jpg" alt="Cosmetic" />
-                                    <div class="collection-grid-item__title-wrapper">
-                                        <h3 class="collection-grid-item__title btn btn--secondary no-border">Cosmetic
-                                        </h3>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="collection-grid-item blur-up lazyloaded">
-                                <a href="collection-page.html" class="collection-grid-item__link">
-                                    <img data-src="assets/images/collection/bag.jpg"
-                                        src="assets/images/collection/bag.jpg" alt="Bag"
-                                        class="blur-up lazyload" />
-                                    <div class="collection-grid-item__title-wrapper">
-                                        <h3 class="collection-grid-item__title btn btn--secondary no-border">Bag</h3>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="collection-grid-item">
-                                <a href="collection-page.html" class="collection-grid-item__link">
-                                    <img data-src="assets/images/collection/accessories.jpg"
-                                        src="assets/images/collection/accessories.jpg" alt="Accessories"
-                                        class="blur-up lazyload" />
-                                    <div class="collection-grid-item__title-wrapper">
-                                        <h3 class="collection-grid-item__title btn btn--secondary no-border">
-                                            Accessories
-                                        </h3>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="collection-grid-item">
-                                <a href="collection-page.html" class="collection-grid-item__link">
-                                    <img data-src="assets/images/collection/shoes.jpg"
-                                        src="assets/images/collection/shoes.jpg" alt="Shoes"
-                                        class="blur-up lazyload" />
-                                    <div class="collection-grid-item__title-wrapper">
-                                        <h3 class="collection-grid-item__title btn btn--secondary no-border">Shoes</h3>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="collection-grid-item">
-                                <a href="collection-page.html" class="collection-grid-item__link">
-                                    <img data-src="assets/images/collection/jewellry.jpg"
-                                        src="assets/images/collection/jewellry.jpg" alt="Jewellry"
-                                        class="blur-up lazyload" />
-                                    <div class="collection-grid-item__title-wrapper">
-                                        <h3 class="collection-grid-item__title btn btn--secondary no-border">Jewellry
-                                        </h3>
-                                    </div>
-                                </a>
-                            </div>
+                                @endif
+                            @endforeach
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -843,19 +810,17 @@
 
             <!--Footer-->
             @include('layouts.footer')
-            <!-- Including Jquery -->
-            <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
-            <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-            <script src="assets/js/vendor/jquery.cookie.js"></script>
-            <script src="assets/js/vendor/wow.min.js"></script>
+
             <!-- Including Javascript -->
-            <script src="assets/js/bootstrap.min.js"></script>
-            <script src="assets/js/plugins.js"></script>
-            <script src="assets/js/popper.min.js"></script>
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.js') }}"></script>
+            <script src="{{ asset('assets/js/plugins.js') }}"></script>
+            <script src="{{ asset('assets/js/popper.min.js') }}"></script>
             <script src="assets/js/lazysizes.js"></script>
             <script src="assets/js/main.js"></script>
-            <!--For Newsletter Popup-->
-            <script>
+
+            {{-- <script>
                 jQuery(document).ready(function() {
                     jQuery('.closepopup').on('click', function() {
                         jQuery('#popup-container').fadeOut();
@@ -892,7 +857,7 @@
                         jQuery('#modalOverly').hide();
                     }
                 });
-            </script>
+            </script> --}}
             <!--End For Newsletter Popup-->
         </div>
 </body>

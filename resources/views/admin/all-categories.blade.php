@@ -18,7 +18,9 @@
                 <td>{{$item->title}}</td>
                 <td>{{$item->description}}</td>
 
-               <td> <a href=""><button class="btn btn-sm btn-danger">Delete</button></a></td>
+               <td> <a href=""><button class="btn btn-sm btn-info">Update</button></a>
+                <a href="{{route('destroy', [$item])}}"><button class="btn btn-sm btn-danger">Delete</button></a>
+            </td>
 
             @endforeach
             
