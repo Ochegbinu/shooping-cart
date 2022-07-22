@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+
+    public function index()
+    {
+        $product = Product::all();
+        return view('admin.all-products', compact('product'));
+    }
    
 
     /**
@@ -45,6 +51,12 @@ class ProductController extends Controller
 
         ]);
         return redirect()->back()->with('message', 'Product Created Succsessfully');
+    }
+    
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
     }
 
 

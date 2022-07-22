@@ -27,7 +27,7 @@
     <link href="{{ asset('vendor/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- font awesome style -->
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="{{ asset('vendor/css/style.css" rel="stylesheet') }}" />
     <!-- responsive style -->
@@ -63,7 +63,7 @@
                                 onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();"
                                 data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span
-                                    class="nav-label">{{ Auth::user()->name }} <span class="caret"></span></a>
+                                    class="nav-label"><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -96,18 +96,27 @@
             <div class="col-3">
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{">All Products</a>
+                      
+                       @if (Auth::user()->role == 'admin')
+                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('allProduct')}}" >All Products</a>
                         </li>
-                        <li class="nav-item">
+                            <li class="nav-item">
                             <a class="nav-link active" href="{{ route('category') }}">Create Category</a>
-                        </li>
-                        <li class="nav-item">
+                        </li> 
+                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('allCategory') }}">All Category</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('createProduct') }}">Create Product</a>
                         </li>
+                       @endif
+                           
+                       <li class="nav-item">
+                        <a class="nav-link" href="">Profile</a>
+                    </li>
+                       
+                       
                     </ul>
                 </nav>
             </div>
